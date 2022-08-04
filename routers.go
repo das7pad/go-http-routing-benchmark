@@ -857,6 +857,7 @@ func loadGorillaMux(routes []route) http.Handler {
 
 	re := regexp.MustCompile(":([^/]*)")
 	m := mux.NewRouter()
+	m.OmitRouteFromContext(true)
 	for _, route := range routes {
 		m.HandleFunc(
 			re.ReplaceAllString(route.path, "{$1}"),
@@ -868,6 +869,7 @@ func loadGorillaMux(routes []route) http.Handler {
 
 func loadGorillaMuxSingle(method, path string, handler http.HandlerFunc) http.Handler {
 	m := mux.NewRouter()
+	m.OmitRouteFromContext(true)
 	m.HandleFunc(path, handler).Methods(method)
 	return m
 }
