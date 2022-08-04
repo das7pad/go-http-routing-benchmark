@@ -60,3 +60,5 @@ require (
 	gopkg.in/ini.v1 v1.55.0 // indirect
 	gopkg.in/macaron.v1 v1.3.6
 )
+
+replace github.com/gorilla/mux v1.7.4 => github.com/das7pad/mux v1.8.1-0.20230903200345-339abad8227f
